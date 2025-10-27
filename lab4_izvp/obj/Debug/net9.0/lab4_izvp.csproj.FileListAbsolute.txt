@@ -1,0 +1,14 @@
+/Users/daniilbologan/RiderProjects/lab4_izvp/lab4_izvp/bin/Debug/net9.0/lab4_izvp
+/Users/daniilbologan/RiderProjects/lab4_izvp/lab4_izvp/bin/Debug/net9.0/lab4_izvp.deps.json
+/Users/daniilbologan/RiderProjects/lab4_izvp/lab4_izvp/bin/Debug/net9.0/lab4_izvp.runtimeconfig.json
+/Users/daniilbologan/RiderProjects/lab4_izvp/lab4_izvp/bin/Debug/net9.0/lab4_izvp.dll
+/Users/daniilbologan/RiderProjects/lab4_izvp/lab4_izvp/bin/Debug/net9.0/lab4_izvp.pdb
+/Users/daniilbologan/RiderProjects/lab4_izvp/lab4_izvp/obj/Debug/net9.0/lab4_izvp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/daniilbologan/RiderProjects/lab4_izvp/lab4_izvp/obj/Debug/net9.0/lab4_izvp.AssemblyInfoInputs.cache
+/Users/daniilbologan/RiderProjects/lab4_izvp/lab4_izvp/obj/Debug/net9.0/lab4_izvp.AssemblyInfo.cs
+/Users/daniilbologan/RiderProjects/lab4_izvp/lab4_izvp/obj/Debug/net9.0/lab4_izvp.csproj.CoreCompileInputs.cache
+/Users/daniilbologan/RiderProjects/lab4_izvp/lab4_izvp/obj/Debug/net9.0/lab4_izvp.dll
+/Users/daniilbologan/RiderProjects/lab4_izvp/lab4_izvp/obj/Debug/net9.0/refint/lab4_izvp.dll
+/Users/daniilbologan/RiderProjects/lab4_izvp/lab4_izvp/obj/Debug/net9.0/lab4_izvp.pdb
+/Users/daniilbologan/RiderProjects/lab4_izvp/lab4_izvp/obj/Debug/net9.0/lab4_izvp.genruntimeconfig.cache
+/Users/daniilbologan/RiderProjects/lab4_izvp/lab4_izvp/obj/Debug/net9.0/ref/lab4_izvp.dll

@@ -1,0 +1,7 @@
+[2025-10-27 22:00:32] Store created.
+[22:00:33] ADD -> Product: Laptop (Id=dbc26853-129e-43d6-8812-c8e4cacde7ad) | Price: 1500
+[22:00:33] ADD -> Service: Hosting (Id=a4f699a4-0e93-410d-8f1f-18d5b8ec1cee) | HourlyRate: 10, Hours: 12, Total: 120
+[22:00:33] ADD -> Product: Mouse (Id=6e6ce106-01d2-4e35-8cf3-6c0149745a6b) | Price: 25,99
+[22:00:33] ADD -> Service: Support (Id=4571acbd-8758-4994-86b7-58fa9a5f6cee) | HourlyRate: 30, Hours: 2, Total: 60
+[22:00:35] SAVE -> /Users/daniilbologan/RiderProjects/lab4_izvp/lab4_izvp/bin/Debug/net9.0/items.xml (4 items)
+[2025-10-27 22:00:35] Store disposed.
