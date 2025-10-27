@@ -5,3 +5,17 @@
 [22:00:33] ADD -> Service: Support (Id=4571acbd-8758-4994-86b7-58fa9a5f6cee) | HourlyRate: 30, Hours: 2, Total: 60
 [22:00:35] SAVE -> /Users/daniilbologan/RiderProjects/lab4_izvp/lab4_izvp/bin/Debug/net9.0/items.xml (4 items)
 [2025-10-27 22:00:35] Store disposed.
+[2025-10-27 22:10:33] Store created.
+[22:10:34] ADD -> Product: Laptop (Id=e8eb20b1-f12b-4f9f-bca8-3ec1eaa5dd58) | Price: 1500
+[22:10:34] ADD -> Service: Hosting (Id=14ec3dc6-98ba-4441-ae6f-13faca712e96) | HourlyRate: 10, Hours: 12, Total: 120
+[22:10:34] ADD -> Product: Mouse (Id=c62ac7d1-634a-4ae5-bc56-fd923299adb9) | Price: 25,99
+[22:10:34] ADD -> Service: Support (Id=e02596ff-87da-4bcb-83c4-064e2178fd3b) | HourlyRate: 30, Hours: 2, Total: 60
+[22:10:34] SAVE -> /Users/daniilbologan/RiderProjects/lab4_izvp/lab4_izvp/bin/Debug/net9.0/items.xml (4 items)
+[2025-10-27 22:10:34] Store disposed.
+[2025-10-27 22:15:20] Сховище створено.
+[22:15:20] ДОДАНО -> Product: Laptop (Id=82709417-7db2-4a4a-852f-3b5b4457ba45) | Price: 1500
+[22:15:20] ДОДАНО -> Service: Hosting (Id=c6d76243-3500-4e3e-b136-275ebe3b8711) | HourlyRate: 10, Hours: 12, Total: 120
+[22:15:20] ДОДАНО -> Product: Mouse (Id=02bdbc1f-a90a-4608-8cec-ac45616df057) | Price: 25,99
+[22:15:20] ДОДАНО -> Service: Support (Id=4b18cd9e-6c10-4871-a4f3-404ee50d1e4d) | HourlyRate: 30, Hours: 2, Total: 60
+[22:15:20] ЗБЕРЕЖЕНО -> /Users/daniilbologan/RiderProjects/lab4_izvp/lab4_izvp/bin/Debug/net9.0/items.xml (4 об’єктів)
+[2025-10-27 22:15:20] Сховище звільнено (Dispose).

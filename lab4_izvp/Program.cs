@@ -5,9 +5,17 @@ using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
 
-// ===== Рівень Б: Інтерфейс "Обчислення" + "Калькулятор" =====
+
+
+// ===== Рівень Б: Інтерфейс «Обчислення» + «Калькулятор» =====
 public interface ICalculation
 {
+    /// <summary>
+    /// Обчислює суму двох чисел.
+    /// </summary>
+    /// <param name="a">Перше число.</param>
+    /// <param name="b">Друге число.</param>
+    /// <returns>Сума a і b.</returns>
     double Sum(double a, double b);
 }
 
@@ -16,7 +24,7 @@ public sealed class Calculator : ICalculation
     public double Sum(double a, double b) => a + b;
 }
 
-// ===== Базовая иерархия для демонстрации успадкування =====
+// ===== Базова ієрархія для демонстрації успадкування =====
 [XmlInclude(typeof(Product))]
 [XmlInclude(typeof(Service))]
 public abstract class ItemBase
@@ -27,7 +35,7 @@ public abstract class ItemBase
     public override string ToString() => $"{GetType().Name}: {Name} (Id={Id})";
 }
 
-// Класс, на котором показываем IComparable<T>
+// Клас, на якому демонструємо IComparable<T>
 public sealed class Product : ItemBase, IComparable<Product>
 {
     public decimal Price { get; set; }
@@ -39,7 +47,7 @@ public sealed class Product : ItemBase, IComparable<Product>
         Price = price;
     }
 
-    // Сортировка по цене, затем по имени
+    // Сортування за ціною, далі — за назвою
     public int CompareTo(Product? other)
     {
         if (other is null) return 1;
@@ -67,12 +75,12 @@ public sealed class Service : ItemBase
     public override string ToString() => base.ToString() + $" | HourlyRate: {HourlyRate}, Hours: {Hours}, Total: {Total}";
 }
 
-// ===== Рівень А: Контейнер з приватною колекцією + серіалізація + IEnumerable + IDisposable =====
+// ===== Рівень А: Контейнер із приватною колекцією + серіалізація + IEnumerable + IDisposable =====
 public sealed class ItemStore : IEnumerable<ItemBase>, IDisposable
 {
     private readonly List<ItemBase> _items = new();
     private bool _disposed;
-    private readonly StreamWriter? _log; // демонстрация реального ресурса под IDisposable
+    private readonly StreamWriter? _log; // демонстрація реального ресурсу під IDisposable
 
     public ItemStore(string? logPath = null)
     {
@@ -82,7 +90,7 @@ public sealed class ItemStore : IEnumerable<ItemBase>, IDisposable
             {
                 AutoFlush = true
             };
-            _log.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] Store created.");
+            _log.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] Сховище створено.");
         }
     }
 
@@ -92,7 +100,7 @@ public sealed class ItemStore : IEnumerable<ItemBase>, IDisposable
     {
         ThrowIfDisposed();
         _items.Add(item);
-        _log?.WriteLine($"[{DateTime.Now:HH:mm:ss}] ADD -> {item}");
+        _log?.WriteLine($"[{DateTime.Now:HH:mm:ss}] ДОДАНО -> {item}");
     }
 
     public bool Remove(Guid id)
@@ -101,7 +109,7 @@ public sealed class ItemStore : IEnumerable<ItemBase>, IDisposable
         var idx = _items.FindIndex(i => i.Id == id);
         if (idx >= 0)
         {
-            _log?.WriteLine($"[{DateTime.Now:HH:mm:ss}] REMOVE -> {_items[idx]}");
+            _log?.WriteLine($"[{DateTime.Now:HH:mm:ss}] ВИДАЛЕНО -> {_items[idx]}");
             _items.RemoveAt(idx);
             return true;
         }
@@ -114,26 +122,26 @@ public sealed class ItemStore : IEnumerable<ItemBase>, IDisposable
         return _items.OfType<T>();
     }
 
-    // Серіалізація (XML). Сохраняем разнородную коллекцию
+    // Серіалізація (XML). Зберігаємо різнорідну колекцію
     public void SaveToFile(string path)
     {
         ThrowIfDisposed();
         var serializer = new XmlSerializer(typeof(List<ItemBase>), new[] { typeof(Product), typeof(Service) });
         using var fs = File.Create(path);
         serializer.Serialize(fs, _items);
-        _log?.WriteLine($"[{DateTime.Now:HH:mm:ss}] SAVE -> {path} ({_items.Count} items)");
+        _log?.WriteLine($"[{DateTime.Now:HH:mm:ss}] ЗБЕРЕЖЕНО -> {path} ({_items.Count} об’єктів)");
     }
 
     public void LoadFromFile(string path)
     {
         ThrowIfDisposed();
-        if (!File.Exists(path)) throw new FileNotFoundException("File not found", path);
+        if (!File.Exists(path)) throw new FileNotFoundException("Файл не знайдено", path);
         var serializer = new XmlSerializer(typeof(List<ItemBase>), new[] { typeof(Product), typeof(Service) });
         using var fs = File.OpenRead(path);
         var loaded = (List<ItemBase>)serializer.Deserialize(fs)!;
         _items.Clear();
         _items.AddRange(loaded);
-        _log?.WriteLine($"[{DateTime.Now:HH:mm:ss}] LOAD <- {path} ({_items.Count} items)");
+        _log?.WriteLine($"[{DateTime.Now:HH:mm:ss}] ЗАВАНТАЖЕНО <- {path} ({_items.Count} об’єктів)");
     }
 
     // IEnumerable<T> + IEnumerable
@@ -148,7 +156,7 @@ public sealed class ItemStore : IEnumerable<ItemBase>, IDisposable
     public void Dispose()
     {
         if (_disposed) return;
-        _log?.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] Store disposed.");
+        _log?.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] Сховище звільнено (Dispose).");
         _log?.Dispose();
         _disposed = true;
         GC.SuppressFinalize(this);
@@ -160,16 +168,16 @@ public sealed class ItemStore : IEnumerable<ItemBase>, IDisposable
     }
 }
 
-// ===== Демонстрация работы (Рівень А і Б) =====
+// ===== Демонстрація роботи (Рівень А і Б) =====
 public static class Program
 {
     public static void Main()
     {
-        // 1) Інтерфейс "Обчислення" + Калькулятор
+        // 1) Інтерфейс «Обчислення» + Калькулятор
         ICalculation calc = new Calculator();
-        Console.WriteLine($"Sum(3.5, 4.2) = {calc.Sum(3.5, 4.2)}");
+        Console.WriteLine($"Сума(3.5, 4.2) = {calc.Sum(3.5, 4.2)}");
 
-        // 2) Работа с контейнером: разнородные объекты
+        // 2) Робота з контейнером: різнорідні об’єкти
         string dataPath = Path.Combine(AppContext.BaseDirectory, "items.xml");
         using (var store = new ItemStore(logPath: Path.Combine(AppContext.BaseDirectory, "store.log")))
         {
@@ -178,25 +186,25 @@ public static class Program
             store.Add(new Product("Mouse", 25.99m));
             store.Add(new Service("Support", 30m, 2));
 
-            Console.WriteLine("\n-- Все элементы:");
+            Console.WriteLine("\n-- Усі елементи:");
             foreach (var it in store)
                 Console.WriteLine(it);
 
-            // 3) IComparable<T> на Product: сортировка по цене
-            Console.WriteLine("\n-- Продукты (отсортированы по цене):");
+            // 3) IComparable<T> на Product: сортування за ціною
+            Console.WriteLine("\n-- Продукти (відсортовано за ціною):");
             var sortedProducts = store.OfType<Product>().OrderBy(p => p).ToList();
             foreach (var p in sortedProducts)
                 Console.WriteLine(p);
 
             // 4) Серіалізація
             store.SaveToFile(dataPath);
-            Console.WriteLine($"\nSaved to: {dataPath}");
+            Console.WriteLine($"\nЗбережено до файлу: {dataPath}");
         }
 
-        // 5) Загрузка из файла + демонстрация IEnumerable после десериализации
+        // 5) Завантаження з файлу + демонстрація IEnumerable після десеріалізації
         var store2 = new ItemStore();
         store2.LoadFromFile(dataPath);
-        Console.WriteLine("\n-- После загрузки из файла:");
+        Console.WriteLine("\n-- Після завантаження з файлу:");
         foreach (var it in store2)
             Console.WriteLine(it);
         store2.Dispose();

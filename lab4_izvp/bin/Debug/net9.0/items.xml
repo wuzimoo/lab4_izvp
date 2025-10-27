@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfItemBase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ItemBase xsi:type="Product">
-    <Id>dbc26853-129e-43d6-8812-c8e4cacde7ad</Id>
+    <Id>82709417-7db2-4a4a-852f-3b5b4457ba45</Id>
     <Name>Laptop</Name>
     <Price>1500</Price>
   </ItemBase>
   <ItemBase xsi:type="Service">
-    <Id>a4f699a4-0e93-410d-8f1f-18d5b8ec1cee</Id>
+    <Id>c6d76243-3500-4e3e-b136-275ebe3b8711</Id>
     <Name>Hosting</Name>
     <HourlyRate>10</HourlyRate>
     <Hours>12</Hours>
   </ItemBase>
   <ItemBase xsi:type="Product">
-    <Id>6e6ce106-01d2-4e35-8cf3-6c0149745a6b</Id>
+    <Id>02bdbc1f-a90a-4608-8cec-ac45616df057</Id>
     <Name>Mouse</Name>
     <Price>25.99</Price>
   </ItemBase>
   <ItemBase xsi:type="Service">
-    <Id>4571acbd-8758-4994-86b7-58fa9a5f6cee</Id>
+    <Id>4b18cd9e-6c10-4871-a4f3-404ee50d1e4d</Id>
     <Name>Support</Name>
     <HourlyRate>30</HourlyRate>
     <Hours>2</Hours>

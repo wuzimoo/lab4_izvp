@@ -12,3 +12,4 @@
 /Users/daniilbologan/RiderProjects/lab4_izvp/lab4_izvp/obj/Debug/net9.0/lab4_izvp.pdb
 /Users/daniilbologan/RiderProjects/lab4_izvp/lab4_izvp/obj/Debug/net9.0/lab4_izvp.genruntimeconfig.cache
 /Users/daniilbologan/RiderProjects/lab4_izvp/lab4_izvp/obj/Debug/net9.0/ref/lab4_izvp.dll
+/Users/daniilbologan/RiderProjects/lab4_izvp/lab4_izvp/obj/Debug/net9.0/lab4_izvp.sourcelink.json
